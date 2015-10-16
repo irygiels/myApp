@@ -1,84 +1,51 @@
 package irygiels.myapplication;
 
-import android.os.AsyncTask;
-import android.support.annotation.UiThread;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewTreeObserver;
 
-
-import com.google.android.gms.fitness.data.DataPoint;
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.Viewport;
-import com.jjoe64.graphview.series.LineGraphSeries;
+import com.cardiomood.android.controls.gauge.BatteryIndicatorGauge;
+import com.cardiomood.android.controls.gauge.SpeedometerGauge;
+import com.cardiomood.android.controls.progress.CircularProgressBar;
 
 import java.util.Random;
 
-public class ChartIntent extends AppCompatActivity {
 
-    private static final Random RANDOM = new Random();
-    private LineGraphSeries<com.jjoe64.graphview.series.DataPoint> series;
-    private int lastX=0;
+public class ChartIntent extends Activity {
 
-
+    private SpeedometerGauge speedometer;
+    private BatteryIndicatorGauge batteryindicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart_intent);
-        GraphView graph = (GraphView)findViewById(R.id.graph);
-        series = new LineGraphSeries<com.jjoe64.graphview.series.DataPoint>();
-        graph.addSeries(series);
-        Viewport viewport = graph.getViewport();
-        viewport.setXAxisBoundsManual(true);
-        viewport.setYAxisBoundsManual(true);
-        viewport.setMinX(0);
-        viewport.setMaxX(20);
-        viewport.setMinY(0);
-        viewport.setMaxY(20);
 
-        viewport.setScrollable(true);
-
-
-
-    }
-
-
-    private void addEntry(){
-
-            series.appendData(new com.jjoe64.graphview.series.DataPoint(lastX++, RANDOM.nextDouble() * 20d),true, 100);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        new Thread(new Runnable() {
+        speedometer = (SpeedometerGauge) findViewById(R.id.speedometer);
+        speedometer.setMaxSpeed(50);
+        speedometer.setLabelConverter(new SpeedometerGauge.LabelConverter() {
             @Override
-            public void run() {
-                for (int i = 0; i < 100; i++) {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            addEntry();
-                        }
-                    });
-
-                    try {
-                        Thread.sleep(600);
-                    } catch (Exception e) {
-                    }
-
-                }
-
+            public String getLabelFor(double progress, double maxProgress) {
+                return String.valueOf((int) Math.round(progress));
             }
+        });
+        speedometer.setMaxSpeed(50);
+        speedometer.setMajorTickStep(5);
+        speedometer.setMinorTicks(4);
+        speedometer.addColoredRange(0, 30, Color.GREEN);
+        speedometer.addColoredRange(30, 45, Color.YELLOW);
+        speedometer.addColoredRange(45, 50, Color.RED);
+        speedometer.setSpeed(33, 1000, 300);
 
-        }).start();
+        batteryindicator = (BatteryIndicatorGauge) findViewById(R.id.batteryindicator);
+        batteryindicator.setValue(80, 1000, 300);
+
+        CircularProgressBar circ = (CircularProgressBar) findViewById(R.id.circularprogress);
+        circ.setProgress(90, 1000);
     }
-
-
 
 
     @Override
@@ -102,4 +69,4 @@ public class ChartIntent extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+    }

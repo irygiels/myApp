@@ -507,9 +507,9 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    //Cursor dla każdej tabeli
+    //Cursor dla każdej tabeli - zapytanie
 
-    public Cursor getData(String table_name){
+    public Cursor selectFrom(String table_name){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM " + table_name, null);
         return res;
