@@ -65,7 +65,7 @@ public class MapsActivity extends FragmentActivity implements OnClickListener, L
     boolean machinesClick = false;
     boolean workersClick = false;
     boolean engineClick = false;
-    Database baza;
+    public Database baza;
     NmeaParser nmeaParser;
     int i = 0;
     int j = 0;
@@ -232,8 +232,7 @@ public class MapsActivity extends FragmentActivity implements OnClickListener, L
 
             while(networkConnection==true) {
                 try {
-                    baza.insertData("x", "y", "z", "mac");
-                    Log.i("insert", "wszedl");
+
                     DatagramSocket client_socket = new DatagramSocket(null);
                     client_socket.setReuseAddress(true);
                     client_socket.setBroadcast(true);
@@ -343,7 +342,7 @@ public class MapsActivity extends FragmentActivity implements OnClickListener, L
 
                                 }*/
 
-                                baza.insertData(getAccel_x(), getAccel_y(), getAccel_z(), getMac_id());
+                                //baza.insertData(getAccel_x(), getAccel_y(), getAccel_z(), getMac_id());
                             }
                             if(lat!=0){
                             setUpMap();}
