@@ -507,8 +507,13 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    //do tego momentu mam puste tabelki
+    //Cursor dla każdej tabeli
 
+    public Cursor getData(String table_name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + table_name, null);
+        return res;
+    }
 
     /*
 
