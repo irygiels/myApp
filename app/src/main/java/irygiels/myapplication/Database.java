@@ -16,67 +16,66 @@ public class Database extends SQLiteOpenHelper {
 
         private static final int DATABASE_VERSION = 1;
         private static final String DATABASE_NAME = "baza";
-        private static final String PRACOWNIK = "baza";
-        private static final String GRUPA_ROBOCZA = "baza";
-        private static final String AKCELEROMETR = "baza";
-        private static final String AKTYWNY = "baza";
-        private static final String BEACON = "baza";
-        private static final String GPS = "baza";
-        private static final String HELLO = "baza";
-        private static final String KONTENER = "baza";
-        private static final String OBD = "baza";
-        private static final String PARAMETRY = "baza";
-        private static final String POJAZD = "baza";
-        private static final String RFID = "baza";
-        private static final String PRZEDMIOT = "baza";
 
-
+        private static final String PRACOWNIK = "Pracownik";
+        private static final String GRUPA_ROBOCZA = "GrupaRobocza";
+        private static final String AKCELEROMETR = "Akcelerometr";
+        private static final String AKTYWNY = "Aktywny";
+        private static final String BEACON = "Beacon";
+        private static final String GPS = "GPS";
+        private static final String HELLO = "Hello";
+        private static final String KONTENER = "Kontener";
+        private static final String OBD = "OBD";
+        private static final String PARAMETRY = "Parametry";
+        private static final String POJAZD = "Pojazd";
+        private static final String RFID = "RFID";
+        private static final String PRZEDMIOT = "Przedmiot";
         public static final String tag_idPracownik="idPracownik";
-        public static final String tag_typ="accel_y";
-        public static final String tag_imie="accel_z";
-        public static final String tag_nazwisko="mac_id";
-        public static final String tag_wiek="id";
-        public static final String tag_wzrost="accel_x";
+        public static final String tag_typ="typ";
+        public static final String tag_imie="imie";
+        public static final String tag_nazwisko="nazwisko";
+        public static final String tag_wiek="wiek";
+        public static final String tag_wzrost="wzrost";
         public static final Blob tag_zdjecie = null;
-        public static final String tag_grupa_id="accel_z";
-        public static final String tag_tag_id="mac_id";
-        public static final String tag_idGrupa="id";
-        public static final String tag_nazwa="accel_x";
-        public static final String tag_pojazd_id="accel_y";
-        public static final String tag_idPojazd="accel_z";
-        public static final String tag_vin="mac_id";
+        public static final String tag_grupa_id="grupa_id";
+        public static final String tag_tag_id="tag_id";
+        public static final String tag_idGrupa="idGrupa";
+        public static final String tag_nazwa="nazwa";
+        public static final String tag_pojazd_id="pojazd_id";
+        public static final String tag_idPojazd="idPojazd";
+        public static final String tag_vin="vin";
         public static final String tag_id="id";
-        public static final String tag_idPrzedmiot="id";
-        public static final String tag_przedmiot_id="id";
-        public static final String tag_producent="accel_x";
-        public static final String tag_rokProdukcji="accel_y";
-        public static final String tag_idKontener="accel_z";
+        public static final String tag_idPrzedmiot="idPrzedmiot";
+        public static final String tag_przedmiot_id="przedmiot_id";
+        public static final String tag_producent="producent";
+        public static final String tag_rokProdukcji="rokProdukcji";
+        public static final String tag_idKontener="idKontener";
         public static final String tag_mac_id="mac_id";
-        public static final String tag_idOBD="id";
-        public static final String tag_idBeacon="accel_x";
-        public static final String tag_odleglosc="accel_y";
-        public static final String tag_id_tag="accel_z";
-        public static final String tag_batteryLevel="mac_id";
-        public static final String tag_idParametry="id";
-        public static final String tag_paliwo="mac_id";
-        public static final String tag_temp_oleju="id";
+        public static final String tag_idOBD="idOBD";
+        public static final String tag_idBeacon="Beacon";
+        public static final String tag_odleglosc="odleglosc";
+        public static final String tag_id_tag="id_tag";
+        public static final String tag_batteryLevel="batteryLevel";
+        public static final String tag_idParametry="idParametry";
+        public static final String tag_paliwo="paliwo";
+        public static final String tag_temp_oleju="temp_oleju";
         public static final String tag_predkosc="predkosc";
-        public static final String tag_temp_cieczy_chlodniczej="accel_x";
-        public static final String tag_OBD_id="accel_y";
-        public static final String tag_timestamp="accel_z";
-        public static final String tag_idHello="mac_id";
-        public static final String tag_hello="id";
+        public static final String tag_temp_cieczy_chlodniczej="temp_cieczy_chlodniczej";
+        public static final String tag_OBD_id="OBD_id";
+        public static final String tag_timestamp="timestamp";
+        public static final String tag_idHello="idHello";
+        public static final String tag_hello="hello";
         public static final String tag_data="data";
-        public static final String tag_RSSI="accel_y";
-        public static final String tag_accel_x="mac_id";
-        public static final String tag_accel_y="mac_id";
-        public static final String tag_accel_z="mac_id";
-        public static final String tag_idRFID="mac_id";
-        public static final String tag_adresCzytnika="id";
-        public static final String tag_idGeolokalizacja="mac_id";
-        public static final String tag_latitude="mac_id";
-        public static final String tag_longitude="mac_id";
-        public static final String tag_wysokosc="id";
+        public static final String tag_RSSI="RSSI";
+        public static final String tag_accel_x="accel_x";
+        public static final String tag_accel_y="accel_y";
+        public static final String tag_accel_z="accel_z";
+        public static final String tag_idRFID="idRFID";
+        public static final String tag_adresCzytnika="adresCzytnika";
+        public static final String tag_idGeolokalizacja="idGeolokalizacja";
+        public static final String tag_latitude="latitude";
+        public static final String tag_longitude="longitude";
+        public static final String tag_wysokosc="wysokosc";
 
 
 
@@ -432,7 +431,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(tag_RSSI, RSSI);
         values.put(tag_OBD_id, OBD_id);
 
-        db.insert(PRACOWNIK, null, values);
+        db.insert(HELLO, null, values);
 
     }
 
@@ -534,24 +533,7 @@ public class Database extends SQLiteOpenHelper {
                         null, // g. order by
                         null); // h. limit
 
-        // 3. if we got results get the first one
-        if (cursor != null)
-            cursor.moveToFirst();
 
-        // 4. build  object
-        Sensor sensor = new Sensor();
-        sensor.setId(Integer.parseInt(cursor.getString(0)));
-        sensor.setAccel_x(cursor.getString(1));
-        sensor.setAccel_y(cursor.getString(2));
-        sensor.setAccel_z(cursor.getString(3));
-        sensor.setMac_id(cursor.getString(4));
-
-
-        //log
-        Log.d("getSensor(" + id + ")", sensor.toString());
-
-        // 5. return book
-        return sensor;
     }*/
 
 }
